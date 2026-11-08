@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisarga Care Arogyadhama | Elder Care in Bangalore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#173b3a; --green:#1f6159; --leaf:#7da88b; --cream:#f7f4ec; --sun:#d8a35d; --white:#fff; }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; font-family:"DM Sans",sans-serif; color:#314543; background:var(--cream); }
+        h1,h2,h3 { font-family:"Fraunces",serif; color:var(--ink); margin-top:0; }
+        a { color:inherit; text-decoration:none; }
+        .container { width:min(1120px,calc(100% - 40px)); margin:auto; }
+        .nav { height:82px; display:flex; align-items:center; background:rgba(247,244,236,.94); position:sticky; top:0; z-index:20; backdrop-filter:blur(14px); border-bottom:1px solid rgba(31,97,89,.08); }
+        .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+        .brand { font-family:"Fraunces",serif; font-size:22px; color:var(--ink); }
+        .brand small { display:block; font-family:"DM Sans",sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#6b817d; }
+        .nav-links { display:flex; gap:28px; align-items:center; font-weight:600; }
+        .nav-links a { position:relative; }
+        .nav-links a:not(.button)::after { content:""; position:absolute; left:0; right:100%; bottom:-8px; height:2px; background:var(--sun); transition:.3s; }
+        .nav-links a:hover::after { right:0; }
+        .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:46px; padding:0 22px; border-radius:999px; background:var(--green); color:white; font-weight:700; box-shadow:0 12px 30px rgba(31,97,89,.16); transition:.25s; }
+        .button:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(31,97,89,.24); }
+        .button.light { background:white; color:var(--ink); border:1px solid rgba(23,59,58,.12); }
+        .hero { min-height:650px; position:relative; overflow:hidden; display:flex; align-items:center; background:linear-gradient(110deg,#edf2e8 0%,#f8f4eb 60%,#e5eee6 100%); }
+        .hero::before { content:""; position:absolute; width:520px; height:520px; right:-130px; top:-160px; border-radius:50%; border:90px solid rgba(125,168,139,.15); animation:breathe 7s ease-in-out infinite; }
+        .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:70px; align-items:center; }
+        .eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:700; color:#778e7c; }
+        h1 { font-size:clamp(48px,6vw,76px); line-height:.98; letter-spacing:-.035em; margin:18px 0 24px; }
+        h1 em { color:var(--green); font-weight:600; }
+        .hero-copy > p { font-size:18px; line-height:1.75; max-width:590px; }
+        .hero-actions { display:flex; gap:12px; margin-top:32px; }
+        .hero-visual { height:470px; position:relative; display:grid; place-items:center; }
+        .photo-card { position:absolute; width:390px; height:430px; border-radius:180px 180px 32px 32px; overflow:hidden; background:linear-gradient(155deg,#bad2c3,#e7e1cf); box-shadow:0 30px 70px rgba(36,73,65,.18); animation:float 5s ease-in-out infinite; }
+        .photo-card img,.about-art img,.nature .photo-card img { width:100%; height:100%; object-fit:cover; display:block; }
+        .photo-card::before { content:"Care with dignity"; position:absolute; inset:0; display:grid; place-items:center; padding-top:90px; text-align:center; font-family:"Fraunces",serif; font-size:42px; line-height:1.05; color:var(--ink); background:radial-gradient(circle at 50% 70%,rgba(255,255,255,.95) 0 22%,transparent 22.5%); }
+        .orbit { position:absolute; width:470px; height:470px; border:1px solid rgba(31,97,89,.18); border-radius:50%; animation:spin 18s linear infinite; }
+        .orbit::before,.orbit::after { content:""; position:absolute; width:12px; height:12px; border-radius:50%; background:var(--sun); left:70px; top:55px; }
+        .orbit::after { left:auto; right:28px; top:auto; bottom:120px; background:var(--green); }
+        section { padding:96px 0; }
+        .section-head { max-width:660px; margin-bottom:44px; }
+        .section-head h2 { font-size:clamp(38px,5vw,58px); line-height:1.05; letter-spacing:-.025em; }
+        .services-preview { background:white; }
+        .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+        .service-card { padding:30px; min-height:220px; border:1px solid #e5e8df; border-radius:24px; background:#fbfcf8; transition:.35s; }
+        .service-card:nth-child(2),.service-card:nth-child(5) { background:var(--cream); }
+        .service-card:hover { transform:translateY(-8px); border-color:#c6d4c7; box-shadow:0 22px 50px rgba(32,70,64,.09); }
+        .icon { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:#dfebe3; color:var(--green); font-size:23px; margin-bottom:24px; }
+        .service-card h3 { font-family:"DM Sans",sans-serif; font-size:20px; margin-bottom:10px; }
+        .service-card p { line-height:1.65; margin:0; font-size:14px; }
+        .about { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; align-items:center; }
+        .about-art { height:460px; border-radius:28px 28px 180px 28px; background:linear-gradient(145deg,#dce8dc,#9bbba1); display:grid; place-items:center; position:relative; overflow:hidden; }
+        .about-art::before { content:"A peaceful place to belong"; width:250px; color:white; text-align:center; font-family:"Fraunces",serif; font-size:43px; line-height:1.05; }
+        .about-copy p,.nature p,.legacy p,.contact p { line-height:1.85; }
+        .values { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px; }
+        .value { padding:16px 18px; border-left:3px solid var(--sun); background:rgba(255,255,255,.6); }
+        .nature { background:var(--ink); color:white; }
+        .nature h2,.nature h3 { color:white; }
+        .nature-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+        .nature .photo-card { width:100%; height:390px; position:relative; animation:none; border-radius:28px; background:linear-gradient(145deg,#a3c1a9,#dfe3c8); }
+        .legacy-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; }
+        .number { font-family:"Fraunces",serif; font-size:120px; line-height:.8; color:var(--leaf); }
+        .contact { text-align:center; background:#e6ede5; }
+        .contact-box { max-width:760px; margin:auto; padding:60px 40px; border-radius:30px; background:white; box-shadow:0 24px 70px rgba(33,78,70,.1); }
+        footer { padding:30px 0; background:#102c2b; color:#d9e1dc; text-align:center; font-size:13px; }
+        [data-reveal] { opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
+        [data-reveal].visible { opacity:1; transform:none; }
+        @keyframes float { 0%,100% { transform:translateY(0) rotate(-1deg); } 50% { transform:translateY(-14px) rotate(1deg); } }
+        @keyframes breathe { 50% { transform:scale(1.08); opacity:.65; } }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        @media (max-width:850px) {
+            .nav-links a:not(.button) { display:none; } .hero-grid,.about,.nature-grid,.legacy-grid { grid-template-columns:1fr; }
+            .hero { padding:70px 0; } .hero-grid { gap:35px; } .hero-visual { height:410px; } .photo-card { width:min(350px,90vw); height:390px; } .orbit { width:390px; height:390px; }
+            .service-grid { grid-template-columns:1fr 1fr; } section { padding:72px 0; } .about { gap:40px; } .number { font-size:90px; }
+        }
+        @media (max-width:560px) {
+            .container { width:min(100% - 28px,1120px); } .nav { height:72px; } .brand { font-size:19px; } .nav-links { gap:8px; } .nav-links .button { min-height:42px; padding:0 16px; }
+            h1 { font-size:48px; } .hero-copy > p { font-size:16px; } .hero-actions { flex-direction:column; align-items:stretch; } .hero-visual { height:370px; } .photo-card { height:350px; } .orbit { width:340px; height:340px; }
+            .service-grid { grid-template-columns:1fr; } .values { grid-template-columns:1fr; } .contact-box { padding:45px 20px; } .nature-grid { gap:35px; } .nature .photo-card { height:300px; }
+        }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { animation:none!important; transition:none!important; } [data-reveal] { opacity:1; transform:none; } }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="container nav-inner">
+        <a class="brand" href="index.html">Nisarga Care<small>Arogyadhama</small></a>
+        <div class="nav-links"><a href="#about">About</a><a href="service.html">Services</a><a href="blogs.html">Blogs</a><a class="button" href="tel:+919731256246">Call Us</a></div>
+    </div></nav>
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-copy" data-reveal>
+                <div class="eyebrow">Compassionate senior care in Bangalore</div>
+                <h1>A caring home, <em>with heart.</em></h1>
+                <p>A peaceful senior living and healthcare centre offering assisted living, professional nursing and personalised support for every stage of ageing.</p>
+                <div class="hero-actions"><a class="button" href="service.html">Explore our care</a><a class="button light" href="https://wa.me/919731256246">WhatsApp us</a></div>
+            </div>
+            <div class="hero-visual" aria-hidden="true"><div class="orbit"></div><div class="photo-card"><img src="care-hands.jpg" alt=""></div></div>
+        </div>
+    </header>
+    <main>
+        <section class="services-preview" id="services"><div class="container">
+            <div class="section-head" data-reveal><div class="eyebrow">Our care services</div><h2>Support shaped around your loved one.</h2></div>
+            <div class="service-grid">
+                <article class="service-card" data-reveal><div class="icon">24</div><h3>24/7 Nursing Care</h3><p>Round-the-clock nursing support for changing health and daily care needs.</p></article>
+                <article class="service-card" data-reveal><div class="icon">A</div><h3>Assisted Living</h3><p>A supportive home where residents retain independence with the right help nearby.</p></article>
+                <article class="service-card" data-reveal><div class="icon">G</div><h3>Geriatric Care</h3><p>Thoughtful attention to the comfort and health concerns that come with ageing.</p></article>
+                <article class="service-card" data-reveal><div class="icon">+</div><h3>Medical Supervision</h3><p>Regular health monitoring and attentive medical support based on individual needs.</p></article>
+                <article class="service-card" data-reveal><div class="icon">H</div><h3>Flexible Residence</h3><p>Short-term and long-term residential care with a safe, homelike setting.</p></article>
+                <article class="service-card" data-reveal><div class="icon">•</div><h3>Personalised Assistance</h3><p>Individual support with daily routines, personal needs and meaningful companionship.</p></article>
+            </div>
+        </div></section>
+        <section id="about"><div class="container about">
+            <div class="about-art" data-reveal><img src="dementia-care.jpg" alt="Caregiver supporting an elderly resident"></div>
+            <div class="about-copy" data-reveal><div class="eyebrow">About Nisarga Care</div><h2>Comfort, dignity and genuine compassion.</h2><p>At Nisarga Care Arogyadhama, every senior is cared for as a valued individual. Our trained nurses and caregivers provide a warm living environment with attention to physical well-being, emotional comfort and quality of life.</p><div class="values"><div class="value">Respectful, individual attention</div><div class="value">Professional nursing support</div><div class="value">Nutritious, home-style meals</div><div class="value">Safe, reassuring surroundings</div></div></div>
+        </div></section>
+        <section class="nature"><div class="container nature-grid">
+            <div data-reveal><div class="eyebrow" style="color:#b8cbbd">A peaceful setting</div><h2>A home surrounded by nature.</h2><p>Spread across half an acre of greenery, our centre combines the calm of a natural campus with professional nursing and medical supervision.</p></div>
+            <div class="photo-card" data-reveal><img src="care-main.jpg" alt="Peaceful elder care at Nisarga Care"></div>
+        </div></section>
+        <section class="legacy"><div class="container legacy-grid">
+            <div data-reveal><div class="number">1989</div><div class="eyebrow">Care that comes from experience</div></div>
+            <div data-reveal><p>Nisarga Care's organisation began its journey in 1989 with a commitment to providing shelter and care for people in need. Every resident has a different story, different needs and different expectations. That understanding guides our personal approach to care.</p><p>Moving into a care home is a significant transition for families too. Our team works to make this change comfortable and reassuring, helping residents feel safe, valued and connected.</p></div>
+        </div></section>
+        <section class="contact"><div class="container"><div class="contact-box" data-reveal><div class="eyebrow">Talk to our care team</div><h2>Your loved ones deserve compassionate care.</h2><p>Call <strong>+91 97312 56246</strong> to discuss facilities and care requirements.</p><div class="hero-actions" style="justify-content:center"><a class="button" href="tel:+919731256246">Call now</a><a class="button light" href="https://wa.me/919731256246">WhatsApp</a></div></div></div></section>
+    </main>
+    <footer>© Nisarga Care Arogyadhama · Bangalore</footer>
+    <script>
+        const reveals = document.querySelectorAll("[data-reveal]");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
+        }, { threshold: .12 });
+        reveals.forEach((element, index) => { element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`; observer.observe(element); });
+    </script>
+</body>
+</html>

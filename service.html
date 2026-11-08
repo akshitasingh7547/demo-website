@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Services | Nisarga Care Arogyadhama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#173b3a; --green:#1f6159; --leaf:#7da88b; --cream:#f7f4ec; --sun:#d8a35d; }
+        * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; font-family:"DM Sans",sans-serif; color:#314543; background:var(--cream); }
+        h1,h2,h3 { font-family:"Fraunces",serif; color:var(--ink); margin-top:0; } a { color:inherit; text-decoration:none; }
+        .container { width:min(1120px,calc(100% - 40px)); margin:auto; }
+        .nav { height:82px; display:flex; align-items:center; background:rgba(247,244,236,.94); position:sticky; top:0; z-index:20; backdrop-filter:blur(14px); border-bottom:1px solid rgba(31,97,89,.08); }
+        .nav-inner { display:flex; align-items:center; justify-content:space-between; } .brand { font-family:"Fraunces",serif; font-size:22px; color:var(--ink); } .brand small { display:block; font-family:"DM Sans",sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#6b817d; }
+        .nav-links { display:flex; gap:28px; align-items:center; font-weight:600; } .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 22px; border-radius:999px; background:var(--green); color:white; font-weight:700; box-shadow:0 12px 30px rgba(31,97,89,.16); transition:.25s; } .button:hover { transform:translateY(-3px); }
+        .button.light { background:white; color:var(--ink); border:1px solid rgba(23,59,58,.12); }
+        .hero { overflow:hidden; position:relative; padding:90px 0 80px; text-align:center; background:linear-gradient(135deg,#edf2e8,#f8f4eb); }
+        .hero::before,.hero::after { content:""; position:absolute; width:180px; height:180px; border:1px solid rgba(31,97,89,.18); border-radius:50%; animation:breathe 6s ease-in-out infinite; } .hero::before { left:-70px; top:-50px; } .hero::after { right:-50px; bottom:-90px; width:240px; height:240px; }
+        .hero-photo { width:min(760px,86%); height:210px; margin:42px auto -140px; object-fit:cover; object-position:center 42%; display:block; border-radius:28px; box-shadow:0 28px 60px rgba(23,59,58,.18); position:relative; z-index:1; }
+        .eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:700; color:#778e7c; } h1 { max-width:850px; margin:18px auto 20px; font-size:clamp(48px,7vw,78px); line-height:1; letter-spacing:-.03em; } h1 em { color:var(--green); font-weight:600; } .hero p { max-width:680px; margin:0 auto; font-size:18px; line-height:1.75; }
+        .services { padding:190px 0 110px; } .intro { max-width:650px; margin-bottom:46px; } .intro h2 { font-size:clamp(38px,5vw,58px); line-height:1.05; }
+        .service-list { display:flex; flex-direction:column; gap:18px; }
+        .service-row { min-height:230px; border-radius:28px; background:white; border:1px solid rgba(31,97,89,.09); display:grid; grid-template-columns:140px 1fr 180px; gap:34px; align-items:center; padding:34px 42px; transition:.35s; overflow:hidden; }
+        .service-row:nth-child(even) { background:#edf2e8; } .service-row:hover { transform:translateX(8px); box-shadow:0 24px 60px rgba(29,73,66,.09); }
+        .service-icon { width:110px; height:110px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(145deg,#dcebe0,#bdcfbd); color:var(--green); font-family:"Fraunces",serif; font-size:50px; animation:float 5s ease-in-out infinite; overflow:hidden; }
+        .service-icon img { width:100%; height:100%; object-fit:cover; }
+        .service-row:nth-child(even) .service-icon { animation-delay:-2s; } .service-text h3 { font-size:30px; margin-bottom:12px; } .service-text p { margin:0; line-height:1.7; max-width:620px; }
+        .service-label { justify-self:end; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#718b82; border-top:2px solid var(--sun); padding-top:10px; }
+        .cta { text-align:center; background:var(--ink); padding:75px 0; color:white; } .cta h2 { color:white; font-size:48px; } .cta p { opacity:.8; } .cta-actions { display:flex; justify-content:center; gap:12px; margin-top:28px; }
+        footer { padding:28px 0; text-align:center; font-size:13px; color:#dfe6e2; background:#102c2b; }
+        [data-reveal] { opacity:0; transform:translateY(28px); transition:.7s ease; } [data-reveal].visible { opacity:1; transform:none; }
+        @keyframes float { 50% { transform:translateY(-9px); } } @keyframes breathe { 50% { transform:scale(1.12); opacity:.55; } }
+        @media (max-width:800px) { .nav-links a:not(.button) { display:none; } .service-row { grid-template-columns:90px 1fr; gap:22px; padding:28px; } .service-icon { width:80px; height:80px; font-size:36px; } .service-label { display:none; } }
+        @media (max-width:560px) {
+            .container { width:min(100% - 28px,1120px); } .nav { height:72px; } .brand { font-size:19px; } .nav-links { gap:8px; } .nav-links .button { min-height:42px; padding:0 16px; }
+            h1 { font-size:46px; } .hero { padding:68px 0; } .hero p { font-size:16px; } .hero-photo { height:160px; margin-bottom:-105px; } .services { padding:150px 0 80px; } .service-row { grid-template-columns:1fr; text-align:left; } .service-icon { width:76px; height:76px; } .service-text h3 { font-size:26px; } .cta h2 { font-size:38px; } .cta-actions { flex-direction:column; padding:0 20px; }
+        }
+        @media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } [data-reveal] { opacity:1; transform:none; } }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="container nav-inner"><a class="brand" href="index.html">Nisarga Care<small>Arogyadhama</small></a><div class="nav-links"><a href="index.html#about">About</a><a href="blogs.html">Blogs</a><a class="button" href="tel:+919731256246">Call Us</a></div></div></nav>
+    <header class="hero"><div class="container" data-reveal><div class="eyebrow">Individual care for every need</div><h1>Care that feels <em>personal.</em></h1><p>Thoughtful elder care, professional support and comfortable living for seniors in Bangalore.</p><img class="hero-photo" src="care-support.jpg" alt="Personal support for elderly residents"></div></header>
+    <main class="services"><div class="container">
+        <div class="intro" data-reveal><div class="eyebrow">Our services</div><h2>Support for daily life and changing health needs.</h2></div>
+        <div class="service-list">
+            <article class="service-row" data-reveal><div class="service-icon">24</div><div class="service-text"><h3>24/7 Nursing Care</h3><p>Round-the-clock nursing support to assist residents with their healthcare and everyday care requirements, giving families greater reassurance.</p></div><div class="service-label">Always supported</div></article>
+            <article class="service-row" data-reveal><div class="service-icon">A</div><div class="service-text"><h3>Assisted Living</h3><p>A supportive residential environment for seniors who need help with everyday activities while maintaining as much independence as possible.</p></div><div class="service-label">Comfortable living</div></article>
+            <article class="service-row" data-reveal><div class="service-icon">G</div><div class="service-text"><h3>Geriatric Care</h3><p>Specialised attention to the health, comfort and changing needs of older adults, delivered with patience and compassion.</p></div><div class="service-label">Age-focused care</div></article>
+            <article class="service-row" data-reveal><div class="service-icon">+</div><div class="service-text"><h3>Medical Supervision</h3><p>Medical attention and careful supervision to help monitor residents' health and support their ongoing care needs.</p></div><div class="service-label">Health monitoring</div></article>
+            <article class="service-row" data-reveal><div class="service-icon">H</div><div class="service-text"><h3>Short-Term & Long-Term Residential Care</h3><p>Flexible stay options for seniors who need temporary assistance or a comfortable, secure home for the long term.</p></div><div class="service-label">Flexible stays</div></article>
+            <article class="service-row" data-reveal><div class="service-icon">•</div><div class="service-text"><h3>Personalised Care & Assistance</h3><p>Individual attention from trained caregivers to support residents with personal routines, daily needs and meaningful companionship.</p></div><div class="service-label">Care built around you</div></article>
+        </div>
+    </div></main>
+    <section class="cta"><div class="container" data-reveal><div class="eyebrow" style="color:#b8cbbd">Let us help you decide</div><h2>Find the right care for your loved one.</h2><p>Speak with our team about facilities, accommodation and individual care needs.</p><div class="cta-actions"><a class="button light" href="tel:+919731256246">Call +91 97312 56246</a><a class="button" href="https://wa.me/919731256246">WhatsApp us</a></div></div></section>
+    <footer>© Nisarga Care Arogyadhama · Bangalore</footer>
+    <script>
+        const reveals=document.querySelectorAll("[data-reveal]");
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}})},{threshold:.12});
+        reveals.forEach((element,index)=>{element.style.transitionDelay=`${Math.min(index%4,3)*70}ms`;observer.observe(element)});
+    </script>
+</body>
+</html>
